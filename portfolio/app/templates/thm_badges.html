@@ -5,4 +5,16 @@ THM Badges
 {% endblock %}
 
 {% block content %}
+<div class="container">
+    {% for item in badge_data %}
+        <div class="badge_container" id="badge">
+            <img id="badge_image" src="../../static/images/{{item.3}}" width="150" height="150">        
+            <div id="badge_text">
+                <b><h2>thm:~/{{item.1}}</h2></b>
+                <br>
+                <div>$: {{item.2}}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
