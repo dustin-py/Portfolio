@@ -9,11 +9,25 @@
     <div class="topnav">
         <a href="/">Home</a>
         <a href="/thmprofile">THM Profile</a>
+        <a href="https://github.com/dustin-py">GitHub</a>
+        <a href="https://linkedin.com/in/dustinstri92">LinkedIn</a>
     </div>
-    <div id="content" name="content">
-        {% block content %}
-        <link rel="stylesheet" href="../static/css/base.css">
-        {% endblock %}
+    {% block content %}
+    <link rel="stylesheet" href="../static/css/base.css">
+    <div class="container">
+        <div class="box" id=box1>
+            ABOUT:    
+        </div>
+        <div class="box" id=box2>
+            PROJECTS:
+        </div>
+        <div class="box" id=box3>
+            BLOGS:
+        </div>
+        <div class="box" id=box4>
+            TBD:
+        </div>
     </div>
+    {% endblock %}
 </body>
 </html>
