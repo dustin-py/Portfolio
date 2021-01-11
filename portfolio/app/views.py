@@ -1,11 +1,10 @@
 from django.shortcuts import render
-from database.database import query_column_data
+from database.database_utils import query_column_data
 
-from pdb import set_trace as bp
 
 def home(request):
     return render(
-        request, 'home.html', {},
+        request, 'base.html', {},
     )
 
 def thm_profile(request):

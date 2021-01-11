@@ -3,7 +3,7 @@ import os
 import sys
 import time
 
-def connect_to_db(db=os.getenv('DATABASE')):
+def connect_to_db(db='mysite'):
     conn = None
     try:
         print('Connecting to the database...')
@@ -15,9 +15,7 @@ def connect_to_db(db=os.getenv('DATABASE')):
             password='admin123',#os.getenv("PASSWORD"),
         )
         print("-------------------------------------------------")
-        time.sleep(2)
         print(f"You are now connected to {db}")
-        time.sleep(2)
         print("-------------------------------------------------")
         return conn
     
@@ -37,7 +35,6 @@ def insert_data(
     cur.execute(query)    
     conn.commit()
     conn.close()
-    time.sleep(2)
     print("Data has been inserted.")
 
 
@@ -51,11 +48,9 @@ def query_column_data(
     """
     cur.execute(query)
     rows = cur.fetchall()
-    time.sleep(2)
     print("Data has been queried.")
     cur.close()
     conn.close()
-    time.sleep(2)
     print("Connection closed.")
     return rows
 
@@ -81,7 +76,5 @@ def create_table(
     conn.commit()
     conn.close()
     print('--------------')
-    time.sleep(2)
     print('Table Created!')
-    time.sleep(2)
     print('--------------')
