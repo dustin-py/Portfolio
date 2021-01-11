@@ -1,4 +1,4 @@
-from database import connect_to_db, insert_data, create_table
+from database_utils import connect_to_db, insert_data, create_table
 
 table_name = 'thm_profile_badges'
 column_names = [
@@ -24,9 +24,15 @@ row_data_tuple = (
 )
 
 create_table(table_name, column_names, col_d_types)
-conn = connect_to_db()
+conn = connect_to_db(db='mysite')
 cur = conn.cursor()
-for item in row_data_tuple:
-    insert_data(table_name, str(column_names))
+col_string = ''
+for e, i in enumerate(column_names):
+  if e is len(column_names)-1:
+    col_string = col_string + i
+  else:
+    col_string = col_string + i + ', ' 
+for item in row_data_tuple:   
+  insert_data(table_name, col_string, item)
 conn.close()
 print('Database connection closed')

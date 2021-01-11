@@ -2,26 +2,22 @@ import psycopg2
 import os
 import sys
 import time
-from dotenv import load_dotenv
 
-
-def connect_to_db():
+def connect_to_db(db=os.getenv('DATABASE')):
     conn = None
     try:
         print('Connecting to the database...')
-        
-        load_dotenv()
-        
+        os.system('./.env')
         conn = psycopg2.connect(
-            host=os.getenv("HOST"),
-            database=os.getenv("DATABASE"),
-            user=os.getenv("USERNAME"),
-            password=os.getenv("PASSWORD"),
+            host='localhost',#os.getenv("HOST"),
+            database='mysite',#os.getenv("DATABASE"),
+            user='admin',#os.getenv("USERNAME"),
+            password='admin123',#os.getenv("PASSWORD"),
         )
         print("-------------------------------------------------")
-        time.sleep(5)
-        print(f"You are now connected to {os.getenv('DATABASE')}")
-        time.sleep(5)
+        time.sleep(2)
+        print(f"You are now connected to {db}")
+        time.sleep(2)
         print("-------------------------------------------------")
         return conn
     
@@ -41,7 +37,7 @@ def insert_data(
     cur.execute(query)    
     conn.commit()
     conn.close()
-    time.sleep(5)
+    time.sleep(2)
     print("Data has been inserted.")
 
 
@@ -55,11 +51,11 @@ def query_column_data(
     """
     cur.execute(query)
     rows = cur.fetchall()
-    time.sleep(5)
+    time.sleep(2)
     print("Data has been queried.")
     cur.close()
     conn.close()
-    time.sleep(5)
+    time.sleep(2)
     print("Connection closed.")
     return rows
 
@@ -85,7 +81,7 @@ def create_table(
     conn.commit()
     conn.close()
     print('--------------')
-    time.sleep(5)
+    time.sleep(2)
     print('Table Created!')
-    time.sleep(5)
+    time.sleep(2)
     print('--------------')
