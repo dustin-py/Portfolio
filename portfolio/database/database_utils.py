@@ -7,12 +7,11 @@ def connect_to_db(db='mysite'):
     conn = None
     try:
         print('Connecting to the database...')
-        os.system('./.env')
         conn = psycopg2.connect(
             host='localhost',#os.getenv("HOST"),
             database='mysite',#os.getenv("DATABASE"),
             user='admin',#os.getenv("USERNAME"),
-            password='admin123',#os.getenv("PASSWORD"),
+            password='password',#os.getenv("PASSWORD"),
         )
         print("-------------------------------------------------")
         print(f"You are now connected to {db}")
