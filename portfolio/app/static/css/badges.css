@@ -1,0 +1,51 @@
+body {
+    background: black;
+}
+
+.topnav {
+    background-color: darkgrey;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: black;
+    color: white;
+}
+
+.topnav a.active {
+    background-color: black;
+    color: white;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.badge_container {
+    display: grid;
+    height: 18.4vh;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#badge_image {
+    background: black;
+}
+
+#badge_text {
+    color: rgb(83, 228, 0);
+    background: rgba(255, 255, 255, 0.1);
+}
